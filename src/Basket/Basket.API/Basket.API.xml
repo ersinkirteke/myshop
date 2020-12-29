@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Basket.API</name>
+    </assembly>
+    <members>
+        <member name="M:Basket.API.Controllers.BasketController.#ctor(System.Net.Http.IHttpClientFactory)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Basket.API.Controllers.BasketController.AddToCart(Basket.API.Models.AddBasketItemRequest)">
+            <summary>
+            Add basket item to shopping cart
+            </summary>
+            <param name="basketItemRequest"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

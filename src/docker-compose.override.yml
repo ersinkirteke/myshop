@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  identity.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8006:80"
+    hostname: identityapi
+    networks:
+       myshop:    
+          aliases:
+            - identityapi
+
+  basket.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
+    hostname: basketapi
+    networks:
+       myshop:    
+          aliases:
+            - basketapi
+
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8002:80"
+    hostname: catalogapi
+    networks:
+       myshop:    
+          aliases:
+            - catalogapi
+
+  myshop.ocelot.apigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8004:80"
+    hostname: ocelot
+    networks:
+       myshop:    
+          aliases:
+            - ocelot
+networks:
+  myshop:

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catalog.API</name>
+    </assembly>
+    <members>
+        <member name="M:Catalog.API.Controllers.CatalogController.GetShoppingCartItem(System.Int32)">
+            <summary>
+            Getting Catalog Item By Catalog Item ID
+            </summary>
+            <param name="catalogItemId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  identity.api:
+    image: ${DOCKER_REGISTRY-}identityapi
+    build:
+      context: .
+      dockerfile: Identity/Identity.API/Dockerfile
+    container_name: myshopidentity
+    restart: always
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Basket/Basket.API/Dockerfile
+    container_name: myshopbasket
+    restart: always
+    depends_on:
+      - identity.api
+
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Catalog/Catalog.API/Dockerfile
+    container_name: myshopcatalog
+    restart: always
+    depends_on:
+      - identity.api
+
+  myshop.ocelot.apigateway:
+    image: ${DOCKER_REGISTRY-}myshopocelotapigateway
+    build:
+      context: .
+      dockerfile: ApiGateways/MyShop.Ocelot.ApiGateway/Dockerfile
+    container_name: myshopocelotgateway
+    restart: always
+    depends_on:
+      - identity.api
+      - catalog.api
+      - basket.api
