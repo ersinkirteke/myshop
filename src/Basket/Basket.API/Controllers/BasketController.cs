@@ -28,6 +28,9 @@ namespace Basket.API.Controllers
     //TODO: use saga pattern 
     //TODO: add all the container to the kubernetes cluster
     //TODO: write azure pipeline yml for each api
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController]
     [Route("api/v1/[controller]")]
     [Authorize]
@@ -41,7 +44,7 @@ namespace Basket.API.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="configuration"></param>
+        /// <param name="clientFactory"></param>
         public BasketController(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;

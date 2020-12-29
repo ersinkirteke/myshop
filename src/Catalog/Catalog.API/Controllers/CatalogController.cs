@@ -10,19 +10,31 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController]
     [Authorize]
     [Route("api/v1/[controller]")]
     public class CatalogController : ControllerBase
     {
+        #region PROPERTIES
         private readonly ILogger<CatalogController> _logger;
         private static readonly ICurrencyLookup CurrencyLookup = new FakeCurrencyLookup();
+        #endregion
 
+        #region CONSTRUCTOR
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
         public CatalogController(ILogger<CatalogController> logger)
         {
             _logger = logger;
         }
+        #endregion
 
+        #region GET
         /// <summary>
         /// Getting Catalog Item By Catalog Item ID
         /// </summary>
@@ -60,5 +72,6 @@ namespace Catalog.API.Controllers
 
             return item;
         }
+        #endregion
     }
 }
