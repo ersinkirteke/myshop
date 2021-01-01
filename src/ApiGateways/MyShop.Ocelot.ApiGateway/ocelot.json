@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "basketapi",
-          "Port": 8000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/{version}/basket/{everything}",
@@ -23,7 +23,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "catalogapi",
-          "Port": 8002
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/{version}/catalog/{everything}",
@@ -40,7 +40,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "identityapi",
-          "Port": 8006
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/{version}/identity/{everything}",
