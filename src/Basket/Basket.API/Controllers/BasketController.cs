@@ -74,7 +74,7 @@ namespace Basket.API.Controllers
             string accessToken = await HttpContext.GetTokenAsync("access_token");
 
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            Uri url = new Uri("http://localhost:8004/api/v1/catalog/item?catalogItemId=" + basketItemRequest.CatalogItemId);
+            Uri url = new Uri("http://ocelot/api/v1/catalog/item?catalogItemId=" + basketItemRequest.CatalogItemId);
 
             HttpResponseMessage response = await httpClient.GetAsync(url);
 
@@ -108,7 +108,7 @@ namespace Basket.API.Controllers
 
             //TODO:add jwt to azure durable function later
             //call addtocart azure durable function with using a actor model for handling shopping cart
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"http://localhost:7071/api/cart/{basketItemRequest.BasketId}/add");
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"http://addtocartfunction/api/cart/{basketItemRequest.BasketId}/add");
             req.Method = "POST";
             req.ContentType = "application/json";
             Stream stream = req.GetRequestStream();
