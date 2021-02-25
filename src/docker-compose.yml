@@ -9,6 +9,14 @@ services:
     container_name: myshopidentity
     restart: always
 
+  addtocart.azure.func:
+    image: ${DOCKER_REGISTRY-}addtocartfunction
+    build:
+      context: .
+      dockerfile: Basket/ShoppingCart/Dockerfile
+    container_name: addtocartfunction
+    restart: always
+
   basket.api:
     image: ${DOCKER_REGISTRY-}basketapi
     build:

@@ -12,6 +12,15 @@ services:
           aliases:
             - identityapi
 
+  addtocart.azure.func:
+    ports:
+      - "7071:80"
+    hostname: addtocartfunction
+    networks:
+       myshop:    
+          aliases:
+            - addtocartfunction
+
   basket.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
