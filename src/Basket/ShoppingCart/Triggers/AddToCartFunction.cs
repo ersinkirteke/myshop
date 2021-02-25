@@ -20,7 +20,7 @@ namespace MyShop.AddToCart
         [FunctionName("AddToCart")]
         [FixedDelayRetry(5, "00:00:02")]
         public static async Task<ActionResult> RunAsync(
-          [HttpTrigger(AuthorizationLevel.Function, "post", Route = "cart/{id}/add")] HttpRequestMessage req,
+          [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "cart/{id}/add")] HttpRequestMessage req,
           Guid id,
           [DurableClient] IDurableEntityClient client)
         {
